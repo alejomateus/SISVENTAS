@@ -21,7 +21,7 @@ class CreatePersonaTable extends Migration
             $table->string('dir_persona',70)->nullable();
             $table->string('telefono_persona',30)->nullable();
             $table->string('email_persona',50)->nullable();
-            $table->timestamps();
+
         });
     }
 

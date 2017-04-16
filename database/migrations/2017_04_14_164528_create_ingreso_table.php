@@ -22,7 +22,6 @@ class CreateIngresoTable extends Migration
             $table->dateTime('fecha_hora_ingreso');
             $table->decimal('impuesto_ingreso',4,2);
             $table->string('estado_ingreso',20);
-            $table->timestamps();
             
         });
     }

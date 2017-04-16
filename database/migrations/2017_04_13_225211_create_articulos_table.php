@@ -22,7 +22,7 @@ class CreateArticulosTable extends Migration
             $table->string('desc_articulo',512)->nullable();
             $table->string('imagen_articulo',100)->nullable();
             $table->string('estado_articulo',20);
-            $table->timestamps();
+
 
         });
     }

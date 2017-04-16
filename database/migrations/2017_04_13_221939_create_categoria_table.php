@@ -17,7 +17,7 @@ class CreateCategoriaTable extends Migration
             $table->string('nombre_categoria',50);
             $table->string('desc_categoria',256)->nullable();
             $table->boolean('condi_categoria');
-            $table->timestamps();
+
         });
     }
 
