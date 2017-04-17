@@ -6,8 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Articulo extends Model
 {
-    class Categoria extends Model
-{
+
 	protected $table = 'articulos';
 	protected $primaryKey = 'id_articulo';
    	protected $fillable = [
@@ -22,4 +21,4 @@ class Articulo extends Model
     public $timestamps = false;
 }
 
-}
+
