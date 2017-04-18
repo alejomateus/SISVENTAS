@@ -2,7 +2,7 @@
 @section ('contenido')
 	<div class="row">
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-1">
-			<h3>Editar Articulo {{$articulo->nombre_articulo}}</h3>
+			<h3>Editar Cliente {{ $personas->nombre_persona }}</h3>
 			@if (count($errors)>0)
 			<div class="alert alert-danger">
 				<ul>
@@ -16,52 +16,58 @@
 	</div>
 			
 
-	{!!Form::model($articulo,['method'=>'PATCH','route'=>['almacen.articulo.update',$articulo->id_articulo],'files'=>true])!!}
+	{!!Form::model($personas,['method'=>'PATCH','route'=>['ventas.cliente.update',$personas->id_persona],'files'=>true])!!}
 	{{Form::token()}}
 	<div class="row">
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 			<div class="form-group">
 				<label for="nombre">Nombre</label>
-				<input type="text" name="nombre" required value="{{ $articulo->nombre_articulo}}" class="form-control" placeholder="Nombre...">
+				<input type="text" name="nombre" required value="{{ $personas->nombre_persona }}" class="form-control" placeholder="Nombre del cliente...">
 			</div>
 		</div>	
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 			<div class="form-group">
-				<label for="select">Categoria</label>
-				<select name="categoria" class="form-control" >
-					@foreach ($categorias as $cat)
-					@if($cat->id_categoria==$articulo->id_categoria)
-					<option value="{{$cat->id_categoria}}" selected>{{$cat->nombre_categoria}} </option>
-					@else
-					<option value="{{$cat->id_categoria}}" >{{$cat->nombre_categoria}} </option>
-					@endif
-					@endforeach	
+				<label for="tipo_documento">Tipo de Documento</label>
+				<select name="tipo_documento" class="form-control" >
+					
+					<option value="Cedula de Ciudadania" 
+					@if ($personas->tipo_doc_persona=="Cedula de Ciudadania")
+					selected
+					@endif>Cedula de Ciudadania</option>
+					
+					<option value="NIUP" @if ($personas->tipo_doc_persona=="NIUP")
+					selected
+					@endif>NIUP</option>
+					
+					<option value="Tarjeta de Identidad" @if($personas->tipo_doc_persona=="Tarjeta de Identidad")
+					selected
+					@endif>Tarjeta de Identidad</option>
+					
 				</select>
 			</div>
 		</div>
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 			<div class="form-group">
-				<label for="codigo">Código</label>
-				<input type="text" name="codigo" required value="{{ $articulo->codigo_articulo}}"" class="form-control" placeholder="Codigo del articulo ">
+				<label for="num_documento">Número de Identificacion</label>
+				<input type="text" name="num_documento" required value="{{ $personas->num_doc_persona}}" class="form-control" placeholder="Numero de Identificacion ">
 			</div>
 		</div>
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 			<div class="form-group">
-				<label for="stock">Stock</label>
-				<input type="text" name="stock" required value="{{ $articulo->stock_articulo}}"" class="form-control" placeholder="Stock del articulo ">
+				<label for="direccion">Dirección</label>
+				<input type="text" name="direccion" required value="{{ $personas->dir_persona}}" class="form-control" placeholder="Dirección">
 			</div>
 		</div>
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 			<div class="form-group">
-				<label for="descripcion">Descripción</label>
-				<input type="text" name="descripcion" class="form-control" value="{{ $articulo->desc_articulo}}"" placeholder="Descripción del articulo ">
+				<label for="telefono">Telefono</label>
+				<input type="text" name="telefono" class="form-control" value="{{$personas->telefono_persona}}" placeholder="Telefono ">
 			</div>
 		</div>
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 			<div class="form-group">
-				<label for="imagen">Imagen</label>
-				<input type="file" name="imagen" class="form-control"  >
-				<img src="@if($articulo->imagen_articulo){{ asset('Imagenes/articulos/'.$articulo->imagen_articulo)}} @else {{ asset('Imagenes/articulos/nti.jpg')}} @endif" alt="{{ $articulo->nombre_articulo}}" height="100px" width="100px" class="img-thumbnail">
+				<label for="email">Correo electrónico</label>
+				<input type="text" name="email" class="form-control" value="{{$personas->email_persona}}" placeholder="Correo electrónico ">
 			</div>
 		</div>
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
@@ -70,7 +76,8 @@
 				<button class="btn btn-danger" type="reset">Cancelar</button>
 			</div>
 		</div>
-	</div>			
+	</div>				
+	
 	{!!Form::close()!!}
 		
 @endsection

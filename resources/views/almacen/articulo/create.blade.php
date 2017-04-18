@@ -20,12 +20,12 @@
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 			<div class="form-group">
 				<label for="nombre">Nombre</label>
-				<input type="text" name="nombre" required value="{{ old('nombre')}}" class="form-control" placeholder="Nombre...">
+				<input type="text" name="nombre" required value="{{ old('nombre')}}" class="form-control" placeholder="Nombre del articulo...">
 			</div>
 		</div>	
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 			<div class="form-group">
-				<label for="select">Categoria</label>
+				<label for="categoria">Categoria</label>
 				<select name="categoria" class="form-control">
 					@foreach ($categorias as $cat)
 					<option value="{{$cat->id_categoria}}">{{$cat->nombre_categoria}}</option>

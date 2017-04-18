@@ -13,7 +13,7 @@ class PersonaFormRequest extends Request
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,12 +24,12 @@ class PersonaFormRequest extends Request
     public function rules()
     {
         return [
-            'nombre_persona'=>'required|max:100',
-            'tipo_doc_persona'=>'required|max:20',
-            'num_doc_persona'=>'required|max:20',
-            'dir_persona'=>'max:70',
-            'telefono_persona'=>'max:25',
-            'email_persona'=>'max:50'
+            'nombre'=>'required|max:100',
+            'tipo_documento'=>'required|max:20',
+            'num_documento'=>'required|max:20',
+            'direccion'=>'max:70',
+            'telefono'=>'max:25',
+            'email'=>'max:50'
         ];
     }
 }

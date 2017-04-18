@@ -33,7 +33,7 @@ class ClienteController extends Controller
     {
     	return view ('ventas.cliente.create');
     }
-    public function store(CategoriaFormRequest $request)
+    public function store(PersonaFormRequest $request)
     {
     	$persona = new Persona;
     	$persona->tipo_persona="Cliente";
@@ -48,11 +48,11 @@ class ClienteController extends Controller
     }
     public function show($id)
     {
-    	return view('ventas.cliente.show',['persona'=>Persona::findOrFail($id)]);
+    	return view('ventas.cliente.show',['personas'=>Persona::findOrFail($id)]);
     }
     public function edit($id)
     {
-    	return view('ventas.cliente.edit',['persona'=>Persona::findOrFail($id)]);
+    	return view('ventas.cliente.edit',['personas'=>Persona::findOrFail($id)]);
     }
     public function update(PersonaFormRequest $request, $id)
     {
@@ -63,7 +63,7 @@ class ClienteController extends Controller
     	$persona->dir_persona=$request->get('direccion');
     	$persona->telefono_persona=$request->get('telefono');
     	$persona->email_persona=$request->get('email');
-    	$categoria->update();
+    	$persona->update();
     	return Redirect::to ('ventas/cliente');
     }
     public function destroy($id)

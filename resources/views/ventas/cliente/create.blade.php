@@ -14,47 +14,47 @@
 			@endif
 		</div>
 	</div>	
-	{!!Form::open(array('url'=>'almacen/articulo','method'=>'POST','autocomplete'=>'off','files'=>'true'))!!}
+	{!!Form::open(array('url'=>'ventas/cliente','method'=>'POST','autocomplete'=>'off'))!!}
 	{{Form::token()}}
 	<div class="row">
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 			<div class="form-group">
 				<label for="nombre">Nombre</label>
-				<input type="text" name="nombre" required value="{{ old('nombre')}}" class="form-control" placeholder="Nombre...">
+				<input type="text" name="nombre" required value="{{ old('nombre')}}" class="form-control" placeholder="Nombre del cliente...">
 			</div>
 		</div>	
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 			<div class="form-group">
-				<label for="select">Categoria</label>
-				<select name="categoria" class="form-control">
-					@foreach ($categorias as $cat)
-					<option value="{{$cat->id_categoria}}">{{$cat->nombre_categoria}}</option>
-					@endforeach	
+				<label for="tipo_documento">Tipo de Documento</label>
+				<select name="tipo_documento" class="form-control" >
+					<option value="Cedula de Ciudadania">Cedula de Ciudadania</option>
+					<option value="NIUP">NIUP</option>
+					<option value="Tarjeta de Identidad">Tarjeta de Identidad</option>
 				</select>
 			</div>
 		</div>
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 			<div class="form-group">
-				<label for="codigo">Código</label>
-				<input type="text" name="codigo" required value="{{ old('codigo')}}" class="form-control" placeholder="Codigo del articulo ">
+				<label for="num_documento">Número de Identificacion</label>
+				<input type="text" name="num_documento" required value="{{ old('num_documento')}}" class="form-control" placeholder="Numero de Identificacion ">
 			</div>
 		</div>
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 			<div class="form-group">
-				<label for="stock">Stock</label>
-				<input type="text" name="stock" required value="{{ old('stock')}}" class="form-control" placeholder="Stock del articulo ">
+				<label for="direccion">Dirección</label>
+				<input type="text" name="direccion" required value="{{ old('direccion')}}" class="form-control" placeholder="Dirección">
 			</div>
 		</div>
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 			<div class="form-group">
-				<label for="descripcion">Descripción</label>
-				<input type="text" name="descripcion" class="form-control" value="{{old('descripcion')}}" placeholder="Descripción del articulo ">
+				<label for="telefono">Telefono</label>
+				<input type="text" name="telefono" class="form-control" value="{{old('telefono')}}" placeholder="Telefono ">
 			</div>
 		</div>
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 			<div class="form-group">
-				<label for="imagen">Imagen</label>
-				<input type="file" name="imagen" class="form-control"  >
+				<label for="email">Correo electrónico</label>
+				<input type="text" name="email" class="form-control" value="{{old('email')}}" placeholder="Correo electrónico ">
 			</div>
 		</div>
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
@@ -64,6 +64,6 @@
 			</div>
 		</div>
 	</div>	
-			{!!Form::close()!!}
+	{!!Form::close()!!}
 
 @endsection
