@@ -17,7 +17,7 @@ class CreatePersonaTable extends Migration
             $table->string('tipo_persona',20);
             $table->string('nombre_persona',50);
             $table->string('tipo_doc_persona',20);
-            $table->string('num_doc_persona',30);
+            $table->string('num_doc_persona',30)->unique();
             $table->string('dir_persona',70)->nullable();
             $table->string('telefono_persona',30)->nullable();
             $table->string('email_persona',50)->nullable();

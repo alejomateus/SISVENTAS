@@ -33,15 +33,18 @@
 					<option value="Cedula de Ciudadania" 
 					@if ($personas->tipo_doc_persona=="Cedula de Ciudadania")
 					selected
-					@endif>Cedula de Ciudadania</option>
+					>Cedula de Ciudadania</option>
 					
-					<option value="NIUP" @if ($personas->tipo_doc_persona=="NIUP")
+					<option value="NIUP" @elseif ($personas->tipo_doc_persona=="NIUP")
 					selected
-					@endif>NIUP</option>
+					>NIUP</option>
 					
-					<option value="Tarjeta de Identidad" @if($personas->tipo_doc_persona=="Tarjeta de Identidad")
+					<option value="Tarjeta de Identidad" @elseif($personas->tipo_doc_persona=="Tarjeta de Identidad")
 					selected
-					@endif>Tarjeta de Identidad</option>
+					>Tarjeta de Identidad</option>
+					<option value="NIT" @elseif($personas->tipo_doc_persona=="NIT")
+					selected
+					@endif>NIT</option>
 					
 				</select>
 			</div>

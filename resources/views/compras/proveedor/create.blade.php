@@ -2,7 +2,7 @@
 @section ('contenido')
 	<div class="row">
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-			<h3>Nuevo Cliente</h3>
+			<h3>Nuevo Proveedor</h3>
 			@if (count($errors)>0)
 			<div class="alert alert-danger">
 				<ul>
@@ -14,13 +14,13 @@
 			@endif
 		</div>
 	</div>	
-	{!!Form::open(array('url'=>'ventas/cliente','method'=>'POST','autocomplete'=>'off'))!!}
+	{!!Form::open(array('url'=>'compras/proveedor','method'=>'POST','autocomplete'=>'off'))!!}
 	{{Form::token()}}
 	<div class="row">
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 			<div class="form-group">
 				<label for="nombre">Nombre</label>
-				<input type="text" name="nombre" required value="{{ old('nombre')}}" class="form-control" placeholder="Nombre del cliente...">
+				<input type="text" name="nombre" required value="{{ old('nombre')}}" class="form-control" placeholder="Nombre del proveedor...">
 			</div>
 		</div>	
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
